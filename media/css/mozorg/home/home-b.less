@@ -1,0 +1,539 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../../pebbles/lib.less';
+@import 'prototypes/lib';
+
+@sliderHeight: 250px;
+
+body {
+    border-top: 0;
+}
+
+// Header
+.masthead {
+    .invert-text;
+    background: @color-mozred;
+
+    .content {
+        padding: 61px 20px 0;
+    }
+
+    .masthead-logo {
+        background: @color-mozred-bright;
+        height: 30px;
+        left: 0;
+        margin: 0;
+        padding: 15px 0;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 100%;
+
+        img {
+            height: 30px;
+            margin-left: 60px;
+        }
+    }
+}
+
+// Global main nav
+.masthead-nav-main {
+    .fira-sans-light;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    .toggle {
+        background: @color-mozred url('/media/img/home/new/icon-menu.svg') center center no-repeat;
+        .background-size(24px auto);
+        cursor: pointer;
+        display: block;
+        height: 60px;
+        overflow: hidden;
+        position: relative;
+        text-indent: -999em;
+        width: 60px;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+#nav-main-menu {
+    background: #fff;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, .2);
+    left: -300px;
+    overflow: visible;
+    position: absolute;
+    top: 60px;
+    width: 200px;
+    z-index: 99;
+
+    li {
+        border-bottom: 1px solid #ccc;
+
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    a {
+        background: #fff;
+        color: @color-text-primary;
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        -webkit-transition: background-color 150ms ease, border-width 150ms ease, color 150ms ease, padding 150ms ease;
+                transition: background-color 150ms ease, border-width 150ms ease, color 150ms ease, padding 150ms ease;
+
+        &:hover,
+        &:focus {
+            background-color: #f5f5f5;
+            border-right: 6px solid @color-mozred;
+            color: @color-mozred;
+            text-decoration: underline;
+        }
+    }
+}
+
+.masthead-nav-main:hover #nav-main-menu,
+.masthead-nav-main .toggle:focus + #nav-main-menu {
+    left: auto;
+}
+
+.js #nav-main-menu {
+    left: auto;
+    display: none;
+}
+
+@media @mq-tablet and (min-height: 600px) {
+    .masthead-nav-main {
+        position: static;
+
+        .toggle {
+            display: none;
+        }
+    }
+
+    #nav-main-menu,
+    .js #nav-main-menu {
+        .clearfix;
+        .font-size(14px);
+        background: transparent;
+        box-shadow: none;
+        display: block;
+        margin: 0 20px;
+        padding: 25px 0 15px;
+        position: static;
+        width: auto;
+
+        li {
+            .border-box;
+            border: 0;
+            float: left;
+            padding: 0 5px;
+            text-align: center;
+            width: 33.33%;
+        }
+
+        a,
+        a:hover,
+        a:focus {
+            background: transparent;
+            border: 0;
+            color: #fff;
+            padding: 0;
+        }
+    }
+}
+
+main {
+    overflow: hidden;
+}
+
+#intro {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/media/img/home/new/b/chicago.jpg');
+    background-position: center center;
+    background-size: cover;
+    min-height: 200px;
+
+    h1 {
+        .font-size(24px);
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    h3 {
+        .fira-sans-light;
+        color: #fff;
+    }
+
+    @media @mq-tablet {
+        h1 {
+            .font-size(70px);
+            padding: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+    }
+}
+
+.content {
+    margin: 0 auto;
+
+    @media @mq-tablet {
+        overflow: hidden;
+        width: @width-tablet;
+    }
+
+    @media @mq-desktop {
+        width: @width-desktop;
+    }
+
+    @media @mq-desktop-wide {
+        width: @width-desktop-wide;
+    }
+}
+
+.slider-content {
+    padding: 40px 20px;
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    @media @mq-tablet {
+        p {
+            .font-size(18px);
+        }
+
+        ul {
+            .clearfix;
+        }
+
+        li {
+            float: left;
+
+            &:after {
+                content: '·';
+                padding: 0 10px;
+            }
+
+            &:last-child:after {
+                content: '';
+            }
+        }
+    }
+
+    @media @mq-desktop {
+        p {
+            .font-size(22px);
+        }
+    }
+}
+
+// button to hide/show content should be hidden w/out JS
+.toggle-content {
+    display: none;
+}
+
+#who {
+    .slider-cover {
+        background: #4E8DA5;
+    }
+
+    .slider-detail {
+        background: lighten(#4E8DA5, 10%);
+    }
+}
+
+#innovate {
+    .slider-cover {
+        background: #59A560;
+    }
+
+    .slider-detail {
+        background: lighten(#59A560, 10%);
+    }
+}
+
+// float layout for older browsers
+@media @mq-tablet {
+    #who-innovate-wrapper {
+        .clearfix;
+    }
+
+    #who {
+        float: left;
+        width: 50%;
+    }
+
+    #innovate {
+        float: right;
+        width: 50%;
+    }
+
+    .slider-cover {
+        min-height: @sliderHeight;
+    }
+
+    .slider-detail {
+        min-height: 300px;
+    }
+}
+
+// flexbox layout for savvy browsers that are tablet or wider
+@supports (display: flex) {
+    @media @mq-tablet {
+        #who-innovate-wrapper {
+            .align-items(stretch);
+            .flexbox;
+        }
+
+        #innovate,
+        #who {
+            .flex(1 1 50%);
+            .flex-direction(column);
+            .flexbox;
+            .justify-content(stretch);
+            float: none;
+        }
+
+        .slider-cover,
+        .slider-detail {
+            .flex;
+        }
+
+        .slider-cover {
+            .align-items(center);
+            .flex-direction(column);
+            .flexbox;
+            .justify-content(center);
+
+            .slider-content p {
+                .font-size(20px);
+            }
+        }
+
+        .slider-detail {
+            min-height: 0;
+        }
+
+        // if JS available, set up fancy slider interactions
+        .js {
+            .toggle-content {
+                display: block;
+            }
+
+            #who-innovate-wrapper {
+                .clearfix;
+                display: block;
+                height: @sliderHeight;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+
+                &.open-who {
+                    #innovate {
+                        transform: translateX(100%);
+                    }
+
+                    #who {
+                        transform: translateX(0%);
+                    }
+                }
+
+                &.open-innovate {
+                    #innovate {
+                        transform: translateX(0%);
+                    }
+
+                    #who {
+                        transform: translateX(-100%);
+                    }
+                }
+            }
+
+            #innovate,
+            #who {
+                display: block;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 0.55s ease;
+                width: 100%;
+
+                &.open .slider-cover {
+                    // no delay when opening
+                    transition: all 0.25s ease-out;
+                    width: 30%;
+
+                    .slider-content {
+                        p {
+                            .font-size(16px);
+                            // no delay when opening
+                            transition: font-size 0.3s ease-out;
+                        }
+                    }
+                }
+            }
+
+            // extra content is off to the right
+            #innovate {
+                transform: translateX(50%);
+
+                .slider-cover {
+                    left: 0;
+                }
+
+                .slider-detail {
+                    right: 0;
+                }
+            }
+
+            // extra content is off to the left
+            #who {
+                transform: translateX(-50%);
+
+                .slider-cover {
+                    right: 0;
+                }
+
+                .slider-detail {
+                    left: 0;
+                }
+            }
+
+            .slider-cover,
+            .slider-detail {
+                height: 100%;
+                position: absolute;
+                top: 0;
+            }
+
+            .slider-cover {
+                // slight delay when closing
+                transition: all 0.25s ease-out 0.1s;
+                width: 50%;
+                // sits above .slider-detail
+                z-index: 2;
+            }
+
+            .slider-detail {
+                width: 70%;
+                // sits below .slider-cover
+                z-index: 1;
+            }
+
+            .slider-content {
+                p {
+                    // slight delay when closing
+                    transition: font-size 0.3s ease-out 0.15s;
+                }
+            }
+        }
+    }
+}
+
+
+// Newsletter
+#newsletter-subscribe.section-newsletter {
+    margin: 0;
+    background: @color-mozred-bright;
+
+    .newsletter-form,
+    .form-title,
+    .form-contents {
+        .clearfix;
+        float: none;
+        margin: 0 auto;
+    }
+
+    .form-title {
+        .background-size(100px, 100px);
+        background-position: center top;
+        margin-top: 0;
+        min-height: 0;
+        padding-left: 0;
+        padding-top: 120px;
+        text-align: center;
+
+        h3 {
+            .font-size(32px);
+            font-style: italic;
+            text-align: center;
+        }
+
+        h4 {
+            .font-size(18px);
+            font-weight: normal;
+            line-height: 1.5;
+        }
+    }
+
+    .form-contents {
+        .field {
+            margin: 0 0 1em;
+        }
+    }
+
+    .errorlist {
+        padding: 10px;
+    }
+
+    #newsletter-form-thankyou {
+        padding: 0;
+    }
+}
+
+.js #form-details {
+    .hidden;
+}
+
+@media @mq-tablet {
+    #newsletter-subscribe.section-newsletter {
+        .newsletter-form {
+            padding-left: 380px;
+            width: 310px;
+
+            .form-title {
+                .background-size(120px 120px);
+                .border-box;
+                background-position: left top;
+                float: left;
+                margin-left: -380px;
+                padding: 10px 0 0 140px;
+                width: 350px;
+
+                h3,
+                h4 {
+                    text-align: left;
+                }
+            }
+
+            .form-contents,
+            .form-submit {
+                .border-box;
+                float: left;
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media @mq-desktop-wide {
+    .section-footer .content {
+        width: @width-desktop;
+    }
+}
