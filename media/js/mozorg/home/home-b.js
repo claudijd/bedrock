@@ -5,11 +5,18 @@
 (function($) {
     'use strict';
 
+    var mozClient = window.Mozilla.Client;
+
     var $toggleInnovate = $('#toggle-innovate');
     var $toggleWho = $('#toggle-who');
     var $whoInnovateWrapper = $('#who-innovate-wrapper');
     var $who = $('#who');
     var $innovate = $('#innovate');
+
+    // hide download button for up-to-date fx desktop users
+    if (mozClient.isFirefoxDesktop && mozClient._isFirefoxUpToDate(false)) {
+        $('#nav-download-firefox').css('display', 'none');
+    }
 
     $toggleWho.on('click', function() {
         $whoInnovateWrapper.toggleClass('open-who');
