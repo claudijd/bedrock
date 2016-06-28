@@ -76,7 +76,8 @@
 <main role="main" class="main wrapper">
   <section class="section section-intro" id="intro">
     <div class="content">
-      <h1>{{ _('Internet for people, not profit.') }}</h1>
+      {# L10n: line break below for visual formatting only #}
+      <h1><span>{{ _('Internet for people, <br>not profit.') }}</span></h1>
       <h3>
       {% trans %}
         Hi. We’re Mozilla, the proudly non-profit protectors of the Internet,
@@ -90,7 +91,7 @@
     <section class="slider-wrapper" id="who">
       <div class="slider-cover">
         <div class="slider-content">
-          <p>
+          <p class="slider-intro">
             {{ _('We are a global network of educators, builders, experts and advocates.') }}
           </p>
 
@@ -120,7 +121,7 @@
     <section class="slider-wrapper" id="innovate">
       <div class="slider-cover">
         <div class="slider-content">
-          <p>
+          <p class="slider-intro">
             {{ _('We build web technologies designed to excite, inspire and promote openness.') }}
           </p>
 
@@ -150,8 +151,22 @@
   </section>{#-- /#who-innovate-wrapper --#}
 
   <section class="section" id="firefox">
+    <div class="horizon">
+      <div class="content">
+        <h2>{{ _('Browse freely.') }}</h2>
+      </div>
+      <div class="forest-container">
+        <div class="mountains-container">
+          <div class="mountains layer"></div>
+          <div class="foreground-shape layer"></div>
+          <div class="trees-left"></div>
+          <div class="trees-right"></div>
+          <div class="pathway-stones"></div>
+        </div>
+      </div>
+    </div>
     <div class="content">
-      <h2>{{ _('Browse freely.') }}</h2>
+
 
       <p>
         {{ _('Get Firefox for desktop, iOS and Android, and get the only browser built for freedom, not profit.') }}
